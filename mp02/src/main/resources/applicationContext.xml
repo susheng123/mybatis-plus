@@ -39,25 +39,14 @@
         <property name="typeAliasesPackage"
                   value="com.atguigu.mp.beans"></property>
         <property name="globalConfig" ref="globalConfiguration"/>
-        <property name="plugins">
-            <list>
-                <bean class="com.baomidou.mybatisplus.plugins.PaginationInterceptor"></bean><!--注册分页插件-->
-            </list>
-        </property>
     </bean>
-    <bean id="logicSqlInjector" class="com.baomidou.mybatisplus.mapper.LogicSqlInjector" />
 
     <!--定义mybatis-plus的全局配置-->
     <bean id="globalConfiguration" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
-        <property name="dbColumnUnderline" value="true"/><!--2.3版本后默认是true，表字段下划线_，实体类可以用驼峰-->
+        <property name="dbColumnUnderline" value="false"/><!--2.3版本后默认是true，表字段下划线_，实体类可以用驼峰-->
         <property name="idType" value="0"/><!--主键生成策略,@TableId(value = "id",type = IdType.AUTO)-->
         <property name="tablePrefix" value="tbl_"/><!--表前缀，代替@TableName("tbl_employee")-->
-        <!--注入逻辑删除-->
-        <property name="sqlInjector" ref="logicSqlInjector"/>
-        <property name="logicDeleteValue" value="-1"/>
-        <property name="logicNotDeleteValue" value="1"/>
     </bean>
-    
     <!--
     配置 mybatis 扫描 mapper 接口的路径
     -->

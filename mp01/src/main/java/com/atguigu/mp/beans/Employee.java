@@ -2,6 +2,7 @@ package com.atguigu.mp.beans;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
@@ -18,9 +19,12 @@ import lombok.Data;
 public class Employee {
 //  @TableId(value = "id",type = IdType.AUTO)
   private Integer id;
-  @TableField("last_name")
+//  @TableField("last_name")
   private String lastName;
   private String email;
   private Integer gender;
   private Integer age;
+  @TableLogic
+  private Integer delFlag;
+
 }
